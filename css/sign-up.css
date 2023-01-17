@@ -1,0 +1,144 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  background-color: lightgrey;
+  background-image: linear-gradient(
+    20deg,
+    rgba(114, 63, 255, 0.8),
+    rgba(58, 166, 255, 0.8)
+  );
+  color: whitesmoke;
+  min-height: 100vh;
+}
+
+body > main {
+  margin-inline: auto;
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+  padding: 1rem;
+  padding-top: 4rem;
+  width: min(100%, 40rem);
+  max-width: 40rem;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  height: 0px;
+  width: 0px;
+  border-radius: 50px;
+  background-color: transparent;
+  box-shadow: 10px 0 50px 50px rgba(191, 168, 255, 0.3),
+    -10px 0 50px 50px rgba(159, 210, 255, 0.3);
+  animation: ball1 ease-out infinite 13s 1s;
+}
+
+body::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 0px;
+  width: 0px;
+  border-radius: 50px;
+  background-color: transparent;
+  box-shadow: 10px 0 50px 50px rgba(191, 168, 255, 0.3),
+    -10px 0 50px 50px rgba(159, 210, 255, 0.3);
+  animation: ball2 ease-out infinite 13s 1s;
+}
+
+@keyframes ball1 {
+  from,
+  to {
+    top: 0;
+    left: 0;
+  }
+  25% {
+    top: 100%;
+    left: 0;
+  }
+  50% {
+    top: 100%;
+    left: 100%;
+  }
+  75% {
+    top: 0;
+    left: 100%;
+  }
+}
+
+@keyframes ball2 {
+  from,
+  to {
+    bottom: 0;
+    right: 0;
+  }
+  25% {
+    bottom: 100%;
+    right: 0;
+  }
+  50% {
+    bottom: 100%;
+    right: 100%;
+  }
+  75% {
+    bottom: 0;
+    right: 100%;
+  }
+}
+
+fieldset {
+  margin-inline: auto;
+  margin-top: 3rem;
+  --bg-color: rgba(255, 255, 255, 0.08);
+
+  border: none;
+  background-color: var(--bg-color);
+  backdrop-filter: blur(5px);
+  width: fit-content;
+}
+
+.page-title {
+  padding: 0.4rem 0.8rem;
+}
+
+.text-input {
+  width: clamp(15rem, 70vw, 25rem);
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 0.95rem;
+  padding: 0.6rem 0.9rem;
+  outline: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: background-color 0.2s ease-out;
+}
+
+.text-input:where(:focus-visible, :hover) {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-color: rgba(0, 92, 168, 0.8);
+  box-shadow: 0 0 15px -2px rgba(0, 0, 0, 0.2);
+}
+
+.submit-btn {
+  width: fit-content;
+  padding: 0.5rem 0.9rem;
+  font-weight: bold;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 50px;
+  background-color: rgba(68, 0, 255, 0.4);
+  color: rgba(255, 255, 255, 0.8);
+  transition: 0.15s ease-out background-color, color 0.15s ease-out;
+}
+
+.submit-btn:where(:focus-visible, :hover) {
+  color: whitesmoke;
+  background-color: rgba(0, 92, 168, 0.8);
+}

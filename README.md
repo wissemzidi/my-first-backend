@@ -1,6 +1,6 @@
 # Read Me
 
-## [👀 Live-Server](https://.netlify.app)
+## [👀 Live-Server](http://wissemzidi.rf.gd/)
 
 <img src="./preview.png" alt="">
 

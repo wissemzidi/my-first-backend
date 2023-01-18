@@ -175,3 +175,41 @@ fieldset {
   background-color: rgba(68, 0, 255, 0.4);
   opacity: 1;
 }
+
+/*Box*/
+.d-flex {
+  display: flex;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+  background-color: #eee;
+  padding: 0.4rem 0.8rem;
+  text-align: center;
+  margin-inline: auto;
+  transition: 0.3s ease-out all;
+}
+.align-c {
+  align-items: center;
+}
+
+.gap-1 {
+  gap: 0.5rem;
+}
+
+.p-3 {
+  padding: 1.5rem;
+}
+
+.p-2 {
+  padding: 1rem;
+}
+
+.d-grid {
+  display: grid;
+}
+
+.gap-20 {
+  gap: 20px;
+}

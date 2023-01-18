@@ -27,5 +27,9 @@ $numero = $_POST['numero'];
 // $idNumero = "<script>localStorage.getItem('idNumero');</script>";
 $idNumero = $numero;
 
-editInfo($nom, $prenom, $age, $moyenne, $numero, $idNumero);
-// goToMain();
+if (verifInput($nom, $prenom, $age, $moyenne, $idNumero)) {
+  editInfo($nom, $prenom, $age, $moyenne, $numero, $idNumero);
+  // goToMain();
+} else {
+  die("Not today Bro ;)");
+}

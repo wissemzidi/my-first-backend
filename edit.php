@@ -14,7 +14,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="./img/profile_pic.jpg" type="image/png">
   <link href="css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="./css/framework.css">
+  <!-- <link rel="stylesheet" href="./css/framework.css"> -->
   <link rel="stylesheet" href="./css/edit.css">
   <title>Edit Account</title>
 </head>
@@ -74,6 +74,9 @@
 </body>
 
 <script src="./js/edit.js"></script>
+<noscript>
+  <p class="error">Please reactivate javascript because some of the website functionalities will not work !!</p>
+</noscript>
 
 </html>
 <?php
@@ -83,6 +86,7 @@ if (isset($_POST['numeroSubmitBtn'])) {
   $idNumero = $_POST['idNumero'];
   if (!is_numeric($idNumero)) {
     die("<error class='error'>Not today bro ;)</error>");
+    mysql_close($conn);
   } else {
     $Rq = "SELECT * FROM eleves WHERE Numero='$idNumero'";
     $res = mysql_query($Rq);
@@ -97,7 +101,7 @@ if (isset($_POST['numeroSubmitBtn'])) {
           parceInfo('$nom', '$prenom', '$age', '$moyenne', '$numero');
         </script>");
     }
+    mysql_close($conn);
   }
-  mysql_close($conn);
 }
 ?>

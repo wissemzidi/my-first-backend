@@ -13,8 +13,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="./img/profile_pic.jpg" type="image/png">
-  <link href="./css/framework.css" rel="stylesheet">
   <link href="./css/sign-in.css" rel="stylesheet">
+  <link href="./css/framework.css" rel="stylesheet">
   <script defer type="text/javascript" src="./js/main.js"></script>
   <title>Check Account</title>
 </head>

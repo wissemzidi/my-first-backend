@@ -10,9 +10,13 @@ function editInfo($nom, $prenom, $age, $moyenne, $numero, $idNumero)
   if (mysql_errno() == '1062') {
     echo "<hr>";
     die("Your Number is used before !");
+    return false;
   } elseif (mysql_error()) {
     echo mysql_error();
     die("An Error happened !!");
+    return false;
+  } else {
+    return true;
   }
 }
 
@@ -25,11 +29,13 @@ $moyenne = $_POST['moyenne'];
 $numero = $_POST['numero'];
 
 // $idNumero = "<script>localStorage.getItem('idNumero');</script>";
-$idNumero = $numero;
+$idNumero = $_POST['idNumeroSec'];
 
 if (verifInput($nom, $prenom, $age, $moyenne, $idNumero)) {
-  editInfo($nom, $prenom, $age, $moyenne, $numero, $idNumero);
-  // goToMain();
+  $is_submit = editInfo($nom, $prenom, $age, $moyenne, $numero, $idNumero);
+  if ($is_submit) {
+    goToMain();
+  }
 } else {
   die("Not today Bro ;)");
 }

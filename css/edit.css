@@ -213,3 +213,12 @@ fieldset {
 .gap-20 {
   gap: 20px;
 }
+
+.hidden-ele {
+  width: 0;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  border: none;
+  outline: none;
+}

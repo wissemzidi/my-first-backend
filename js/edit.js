@@ -3,7 +3,14 @@ const btns = document.querySelectorAll(".edit-btn");
 btns.forEach((btn) => {
   btn.addEventListener("click", () => {
     let input = btn.previousElementSibling;
-    if (input.hasAttribute("disabled")) {
+    let is_disabled = input.hasAttribute("disabled");
+    let is_important = input.hasAttribute("data-important");
+    let is_confirm = true;
+
+    if (is_important && is_disabled) {
+      is_confirm = confirm(" > Sensitive data < , Do you Want to complete ?");
+    }
+    if (is_disabled && is_confirm) {
       input.removeAttribute("disabled");
       btn.style.opacity = "1";
       btn.style.backgroundColor = "rgba(180, 60, 60, 0.8)"; // background : red;
@@ -76,10 +83,11 @@ function is_number(txt) {
 }
 
 // parce the users info to the inputs after submitting the first form
-function parceInfo(nom, prenom, age, moyenne, numero) {
+function parceInfo(nom, prenom, age, moyenne, numero, idNumero) {
   document.getElementById("nom").value = nom;
   document.getElementById("prenom").value = prenom;
   document.getElementById("age").value = age;
   document.getElementById("moyenne").value = moyenne;
   document.getElementById("numero").value = numero;
+  document.getElementById("idNumeroSec").value = idNumero;
 }

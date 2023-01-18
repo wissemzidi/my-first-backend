@@ -28,7 +28,7 @@
       <!-- action="./index.php"  -->
       <!-- old info -->
       <form method="post" onsubmit="return verifIdNumero()" name="firstForm" class="form-header">
-        <input class="text-input" type="text" name="idNumero" id="idNumero" placeholder="numero to select" autofocus required />
+        <input class="text-input" type="number" min="1" name="idNumero" id="idNumero" placeholder="numero to select" autofocus required />
         <button class="submit-btn" type="submit" name="numeroSubmitBtn">Send</button>
       </form>
 
@@ -53,8 +53,10 @@
           <button class="edit-btn" type="button">Edit</button>
         </div>
         <div>
-          <input class="text-input" type="number" name="numero" id="numero" placeholder="New Number" disabled required />
-          <button class="edit-btn" type="button">Edit</button>
+          <input class="text-input" type="number" name="numero" id="numero" placeholder="New Number" data-important="true" disabled required />
+          <button class="edit-btn" type="button">
+            Edit
+          </button>
         </div>
 
         <div class="d-flex align-c p-t-10 gap-1" style="justify-content: space-between; padding-right: 10px">
@@ -62,6 +64,7 @@
             <a href="./index.php" class="submit-btn" style="text-decoration: none;">Home</a>
           </div>
           <div>
+            <input class="text-input hidden-ele" type="number" name="idNumeroSec" id="idNumeroSec" aria-hidden="true" style="width: 0; height: 0; padding: 0;" />
             <button class="submit-btn" type="submit" name="submitBtn">Submit</button>
             <button class="submit-btn" type="reset">Reset</button>
           </div>
@@ -84,23 +87,30 @@ if (isset($_POST['numeroSubmitBtn'])) {
   $conn = connectToDb();
   $idNumero = $_POST['idNumero'];
   if (!is_numeric($idNumero)) {
-    die("<error class='error'>Not today bro ;)</error>");
     mysql_close($conn);
+    die("<p class='error'>Not today bro ;)</p>");
   } else {
     $Rq = "SELECT * FROM eleves WHERE Numero='$idNumero'";
     $res = mysql_query($Rq);
-    while ($enreg = mysql_fetch_array($res)) {
-      $nom = $enreg['Nom'];
-      $prenom = $enreg['Prenom'];
-      $age = $enreg['Age'];
-      $moyenne = $enreg['Moyenne'];
-      $numero = $enreg['Numero'];
-      print("
-        <script>
-          parceInfo('$nom', '$prenom', '$age', '$moyenne', '$numero');
-        </script>");
+
+    // handle if the response is empty => no user found
+    if (mysql_num_rows($res) < 1) {
+      mysql_close($conn);
+      die("<p class='error'>Number not found in our DB :(</p>");
+    } else {
+      while ($enreg = mysql_fetch_array($res)) {
+        $nom = $enreg['Nom'];
+        $prenom = $enreg['Prenom'];
+        $age = $enreg['Age'];
+        $moyenne = $enreg['Moyenne'];
+        $numero = $enreg['Numero'];
+        print("
+          <script>
+            parceInfo('$nom', '$prenom', '$age', '$moyenne', '$numero', '$idNumero');
+          </script>");
+        mysql_close($conn);
+      }
     }
-    mysql_close($conn);
   }
 }
 ?>

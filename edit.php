@@ -14,7 +14,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="./img/profile_pic.jpg" type="image/png">
   <link href="css/style.css" rel="stylesheet">
-  <!-- <link rel="stylesheet" href="./css/framework.css"> -->
   <link rel="stylesheet" href="./css/edit.css">
   <title>Edit Account</title>
 </head>

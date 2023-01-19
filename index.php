@@ -18,13 +18,11 @@
   <script defer type="text/javascript" src="./js/main.js"></script>
   <script defer type="text/javascript" src="./js/rotateImg.js"></script>
   <title>Main Page</title>
-  <style>
-  </style>
 </head>
 
 <body>
   <header>
-    <h1 style="text-align: center; color: white;">Main Page</h1>
+    <h1 style="text-align: center; color: white;">Home</h1>
   </header>
   <img class="deco-img" id="deco-img" src="./img/profile_pic.jpg" height="70%" alt="">
   <main>

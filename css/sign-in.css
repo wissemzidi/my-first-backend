@@ -121,7 +121,8 @@ fieldset {
 }
 
 .text-input {
-  width: clamp(15rem, 70vw, 25rem);
+  width: 90vw;
+  max-width: 25rem;
   color: rgba(0, 0, 0, 0.8);
   font-size: 0.95rem;
   padding: 0.6rem 0.9rem;
@@ -153,4 +154,13 @@ fieldset {
 .submit-btn:where(:focus-visible, :hover) {
   color: whitesmoke;
   background-color: rgba(0, 92, 168, 0.8);
+}
+
+@media (max-width: 500px) {
+  body > main {
+    padding: 0;
+  }
+  .p-3 {
+    padding: 1.5rem 0.7rem !important;
+  }
 }

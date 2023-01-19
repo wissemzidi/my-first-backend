@@ -5,6 +5,7 @@
 }
 
 body {
+  font-family: Arial, Helvetica, sans-serif;
   position: relative;
   background-color: lightgrey;
   background-image: linear-gradient(
@@ -19,11 +20,10 @@ body {
 body > main {
   margin-inline: auto;
   display: grid;
-  gap: 2rem;
   align-items: center;
   padding: 1rem;
   padding-top: 4rem;
-  width: min(100%, 40rem);
+  width: 100%;
   max-width: 40rem;
 }
 
@@ -94,14 +94,14 @@ body::after {
 }
 
 fieldset {
+  --bg-color: rgba(255, 255, 255, 0.08);
+
   margin-inline: auto;
   margin-top: 3rem;
-  --bg-color: rgba(255, 255, 255, 0.08);
 
   border: none;
   background-color: var(--bg-color);
   backdrop-filter: blur(5px);
-  width: fit-content;
 }
 
 .page-title {
@@ -109,7 +109,9 @@ fieldset {
 }
 
 .text-input {
-  width: clamp(15rem, 70vw, 25rem);
+  /* min-width: 100%; */
+  width: 90vw;
+  max-width: 25rem;
   color: rgba(0, 0, 0, 0.8);
   font-size: 0.95rem;
   padding: 0.6rem 0.9rem;
@@ -141,4 +143,14 @@ fieldset {
 .submit-btn:where(:focus-visible, :hover) {
   color: whitesmoke;
   background-color: rgba(0, 92, 168, 0.8);
+}
+
+@media (max-width: 500px) {
+  body > main {
+    padding: 0;
+  }
+  .p-3 {
+    padding-block: 1.5rem;
+    padding-inline: 0.7rem;
+  }
 }

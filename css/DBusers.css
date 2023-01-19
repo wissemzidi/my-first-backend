@@ -40,7 +40,7 @@ header {
     color 0.2s ease-out, scale 0.2s ease-out;
 }
 
-.homeLink:hover {
+.homeLink:is(:hover, :focus-within) {
   background-color: rgba(0, 0, 0, 0.4);
   color: white;
   padding-inline: 1em;
@@ -71,7 +71,7 @@ main {
 }
 
 .usersTable :is(th, td) {
-  padding: 1rem;
+  padding: clamp(0.7rem, 2vw, 0.8rem);
 }
 
 .usersTable :is(th, td):first-child {
@@ -83,4 +83,14 @@ main {
 
 .usersTable tr:hover {
   background-color: rgba(200, 200, 200, 0.2);
+}
+
+@media (max-width: 500px) {
+  .usersTable {
+    padding: 0.1rem;
+    border-radius: 10px;
+  }
+  body {
+    padding: 0rem;
+  }
 }

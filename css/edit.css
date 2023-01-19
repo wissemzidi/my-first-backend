@@ -15,14 +15,14 @@ body {
   );
   color: whitesmoke;
   min-height: 100vh;
+  display: grid;
+  justify-content: center;
+  align-items: center;
 }
 
 body > main {
+  translate: 0 -10%;
   margin-inline: auto;
-  display: grid;
-  gap: 2rem;
-  align-items: center;
-  padding: 0.5rem;
   width: min(100%, 40rem);
   max-width: 40rem;
 }
@@ -124,7 +124,8 @@ fieldset {
 }
 
 .text-input {
-  width: clamp(15rem, 70vw, 25rem);
+  width: 70vw;
+  max-width: 25rem;
   color: rgba(0, 0, 0, 0.8);
   font-size: 0.95rem;
   padding: 0.6rem 0.9rem;
@@ -221,4 +222,13 @@ fieldset {
   border-radius: 0;
   border: none;
   outline: none;
+}
+
+@media (max-width: 500px) {
+  body > main {
+    padding: 0;
+  }
+  .p-3 {
+    padding: 1.5rem 0.6rem !important;
+  }
 }

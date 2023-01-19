@@ -3,15 +3,48 @@
   padding: 0;
   box-sizing: border-box;
 }
-
-::-webkit-scrollbar {
-  width: 7px;
-  background-color: rgba(0, 114, 207, 0.75);
+:root {
+  --clr-primary-600: rgba(114, 63, 255);
+  --clr-primary-500: rgba(58, 166, 255);
+  --clr-primary-400: rgb(172, 32, 32);
 }
 
-::-webkit-scrollbar-thumb {
+/* light theme */
+html[theme="light"] {
+  --main-linear-bg: linear-gradient(
+    20deg,
+    rgba(114, 63, 255),
+    rgba(58, 166, 255)
+  );
+  color: #eee;
+  background-color: #222;
+}
+html[theme="light"] ::-webkit-scrollbar {
+  background-color: rgba(0, 114, 207, 0.75);
   width: 7px;
+}
+html[theme="light"] ::-webkit-scrollbar-thumb {
   background-color: rgba(255, 255, 255, 0.486);
+}
+
+/* dark theme */
+html[theme="dark"] {
+  --main-linear-bg: linear-gradient(20deg, rgba(14, 10, 22), rgba(11, 17, 22));
+  --clr-primary-900: #000;
+  --clr-primary-800: rgb(30, 30, 30);
+  --clr-primary-700: rgb(60, 60, 60);
+  --clr-primary-300: rgb(180, 180, 180);
+  --clr-primary-200: rgb(220, 220, 220);
+  --clr-primary-100: rgb(255, 255, 255);
+  color: rgb(202, 202, 202);
+  background-color: #222;
+}
+html[theme="dark"] ::-webkit-scrollbar {
+  background-color: rgb(37, 44, 49);
+  width: 7px;
+}
+html[theme="dark"] ::-webkit-scrollbar-thumb {
+  background-color: rgba(102, 102, 102, 0.5);
 }
 
 body {
@@ -20,12 +53,7 @@ body {
   width: 100%;
   min-height: 100vh;
   background-color: lightgrey;
-  background-image: linear-gradient(
-    20deg,
-    rgba(114, 63, 255),
-    rgba(58, 166, 255)
-  );
-  color: whitesmoke;
+  background-image: var(--main-linear-bg);
   position: relative;
   isolation: isolate;
 }
@@ -68,7 +96,7 @@ main {
 
 .text-input {
   width: clamp(15rem, 70vw, 25rem);
-  color: rgba(0, 0, 0, 0.8);
+  color: var(--clr-primary-200);
   font-size: 0.95rem;
   padding: 0.6rem 0.9rem;
   outline: none;
@@ -98,4 +126,10 @@ main {
 .button:where(:focus-visible, :hover) {
   color: whitesmoke;
   background-color: rgb(172, 32, 32);
+}
+
+.theme-btn {
+  position: fixed;
+  left: 0.5rem;
+  top: 1.5rem;
 }

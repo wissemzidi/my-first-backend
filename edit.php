@@ -1,11 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" theme="light">
 
+<script src="js/mainFirst.js"></script>
 <style>
-  html {
-    background-image: linear-gradient(20deg,
-        rgba(68, 0, 255, 0.75),
-        rgba(0, 114, 207, 0.75));
+  html[theme="light"] {
+    --main-linear-bg: linear-gradient(20deg,
+        rgba(114, 63, 255),
+        rgba(58, 166, 255));
+    background-image: var(--main-linear-bg);
+    background-color: #eee;
+  }
+
+  /* dark theme */
+  html[theme="dark"] {
+    --main-linear-bg: linear-gradient(20deg, rgba(14, 10, 22), rgba(11, 17, 22));
+    background-color: #222;
+    background-image: var(--main-linear-bg);
   }
 </style>
 
@@ -15,10 +25,15 @@
   <link rel="icon" href="./img/profile_pic.jpg" type="image/png">
   <link href="css/style.css" rel="stylesheet">
   <link rel="stylesheet" href="./css/edit.css">
+  <script defer src="./js/main.js"></script>
   <title>Edit Account</title>
 </head>
 
 <body>
+
+  <header>
+    <button id="theme-btn" onclick="changeTheme()" type="button" class="button theme-btn">Theme</button>
+  </header>
 
   <main>
     <fieldset class="p-3" style="border-radius: 20px;">
@@ -34,7 +49,7 @@
 
       <form onsubmit="return verif()" name="editingForm" action="./edit-form.php" method="post" class="change-name-form d-grid gap-20">
 
-        <hr style="margin-block: 1rem;">
+        <hr style="margin-block: 1rem; border: none; border-bottom: 1px solid rgba(250, 250, 250, 0.2);">
         <!-- new info -->
         <div>
           <input class="text-input" type="text" name="nom" id="nom" placeholder="New name" disabled required />

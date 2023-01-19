@@ -1,11 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" theme="light">
 
+<script src="js/mainFirst.js"></script>
 <style>
-  html {
-    background-image: linear-gradient(20deg,
-        rgba(68, 0, 255, 0.75),
-        rgba(0, 114, 207, 0.75));
+  html[theme="light"] {
+    --main-linear-bg: linear-gradient(20deg,
+        rgba(114, 63, 255),
+        rgba(58, 166, 255));
+    background-image: var(--main-linear-bg);
+    background-color: #eee;
+  }
+
+  /* dark theme */
+  html[theme="dark"] {
+    --main-linear-bg: linear-gradient(20deg, rgba(14, 10, 22), rgba(11, 17, 22));
+    background-color: #222;
+    background-image: var(--main-linear-bg);
   }
 </style>
 
@@ -21,7 +31,7 @@
 
 <body>
   <header>
-
+    <button id="theme-btn" onclick="changeTheme()" type="button" class="button theme-btn">Theme</button>
   </header>
 
   <main>

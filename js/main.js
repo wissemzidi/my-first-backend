@@ -38,3 +38,32 @@ function is_number(txt) {
   }
   return txt.length == count;
 }
+
+try {
+  const themeBtn = document.getElementById("theme-btn");
+  const html = document.documentElement;
+  if (html.getAttribute("theme") === "dark") {
+    themeBtn.innerText = "Go Light";
+    console.log("go light");
+  } else {
+    themeBtn.innerText = "Go Dark";
+    console.log("go dark");
+  }
+} catch (error) {
+  console.log("Error", error);
+}
+
+function changeTheme() {
+  const themeBtn = document.getElementById("theme-btn");
+  const html = document.documentElement;
+  is_dark = html.getAttribute("theme") == "dark";
+  if (is_dark) {
+    html.setAttribute("theme", "light");
+    window.localStorage.setItem("theme", "light");
+    themeBtn.innerText = "Go Dark";
+  } else {
+    html.setAttribute("theme", "dark");
+    window.localStorage.setItem("theme", "dark");
+    themeBtn.innerText = "Go Light";
+  }
+}

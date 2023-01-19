@@ -3,17 +3,55 @@
   padding: 0;
   box-sizing: border-box;
 }
+:root {
+  --clr-primary-600: rgba(114, 63, 255);
+  --clr-primary-500: rgba(58, 166, 255);
+  --clr-primary-400: rgb(172, 32, 32);
+}
+
+/* light theme */
+html[theme="light"] {
+  --main-linear-bg: linear-gradient(
+    20deg,
+    rgba(114, 63, 255),
+    rgba(58, 166, 255)
+  );
+  color: #eee;
+  background-color: #222;
+}
+html[theme="light"] ::-webkit-scrollbar {
+  background-color: rgba(0, 114, 207, 0.75);
+  width: 7px;
+}
+html[theme="light"] ::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.486);
+}
+
+/* dark theme */
+html[theme="dark"] {
+  --main-linear-bg: linear-gradient(20deg, rgba(14, 10, 22), rgba(11, 17, 22));
+  --clr-primary-900: #000;
+  --clr-primary-800: rgb(30, 30, 30);
+  --clr-primary-700: rgb(60, 60, 60);
+  --clr-primary-300: rgb(180, 180, 180);
+  --clr-primary-200: rgb(220, 220, 220);
+  --clr-primary-100: rgb(255, 255, 255);
+  color: rgb(202, 202, 202);
+  background-color: #222;
+}
+html[theme="dark"] ::-webkit-scrollbar {
+  background-color: rgb(37, 44, 49);
+  width: 7px;
+}
+html[theme="dark"] ::-webkit-scrollbar-thumb {
+  background-color: rgba(102, 102, 102, 0.5);
+}
 
 body {
   font-family: Arial, Helvetica, sans-serif;
   position: relative;
   background-color: lightgrey;
-  background-image: linear-gradient(
-    20deg,
-    rgba(114, 63, 255, 0.8),
-    rgba(58, 166, 255, 0.8)
-  );
-  color: whitesmoke;
+  background-image: var(--main-linear-bg);
   min-height: 100vh;
 }
 
@@ -109,21 +147,20 @@ fieldset {
 }
 
 .text-input {
-  /* min-width: 100%; */
   width: 90vw;
   max-width: 25rem;
-  color: rgba(0, 0, 0, 0.8);
+  color: var(--clr-primary-200, rgba(0, 0, 0, 0.8));
   font-size: 0.95rem;
   padding: 0.6rem 0.9rem;
   outline: none;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 50px;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: var(--clr-primary-900, rgba(255, 255, 255, 0.5));
   transition: background-color 0.2s ease-out;
 }
 
 .text-input:where(:focus-visible, :hover) {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: var(--clr-primary-900, rgba(255, 255, 255, 0.9));
   border-color: rgba(0, 92, 168, 0.8);
   box-shadow: 0 0 15px -2px rgba(0, 0, 0, 0.2);
 }
@@ -153,4 +190,29 @@ fieldset {
     padding-block: 1.5rem;
     padding-inline: 0.7rem;
   }
+}
+
+.theme-btn {
+  position: fixed;
+  left: 0.5rem;
+  top: 0.5rem;
+}
+
+.button {
+  width: fit-content;
+  padding: 0.5rem 0.9rem;
+  font-weight: bold;
+  font-size: 0.9rem;
+  border: none;
+  text-decoration: none;
+  border-radius: 50px;
+  background-color: rgba(0, 174, 255, 0.4);
+  color: rgba(255, 255, 255, 0.8);
+  box-shadow: 5px 5px 5px 1px rgba(114, 63, 255, 0.3);
+  transition: 0.2s ease-out background-color, color 0.2s ease-out;
+}
+
+.button:where(:focus-visible, :hover) {
+  color: whitesmoke;
+  background-color: rgb(172, 32, 32);
 }

@@ -1,17 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" theme="light">
 
+<script src="js/mainFirst.js"></script>
 <style>
-  html {
-    background-image: linear-gradient(20deg,
-        rgba(68, 0, 255, 0.75),
-        rgba(0, 114, 207, 0.75));
+  html[theme="light"] {
+    --main-linear-bg: linear-gradient(20deg,
+        rgba(114, 63, 255),
+        rgba(58, 166, 255));
+    background-image: var(--main-linear-bg);
+    background-color: #eee;
+  }
+
+  /* dark theme */
+  html[theme="dark"] {
+    --main-linear-bg: linear-gradient(20deg, rgba(14, 10, 22), rgba(11, 17, 22));
+    background-color: #222;
+    background-image: var(--main-linear-bg);
   }
 </style>
+
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=7">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <!-- <meta http-equiv="refresh" content="0; url=http://wissemzidi.rf.gd"> -->
+  <meta name="description" content="My first backend frontend website. I hope you enjoy using it.">
+  <meta name="keywords" content="WissemZidi frontend backend fullstack html css js php">
+
   <link rel="icon" href="./img/profile_pic.jpg" type="image/png">
   <link rel="stylesheet" href="./css/framework.css">
   <link rel="stylesheet" href="./css/style.css">
@@ -22,6 +40,7 @@
 
 <body>
   <header>
+    <button id="theme-btn" onclick="changeTheme()" type="button" class="button theme-btn">Theme</button>
     <h1 style="text-align: center; color: white;">Home</h1>
   </header>
   <img class="deco-img" id="deco-img" src="./img/profile_pic.jpg" height="70%" alt="">

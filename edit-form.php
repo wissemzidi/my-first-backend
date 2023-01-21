@@ -31,7 +31,7 @@ $numero = $_POST['numero'];
 // $idNumero = "<script>localStorage.getItem('idNumero');</script>";
 $idNumero = $_POST['idNumeroSec'];
 
-if (verifInput($nom, $prenom, $age, $moyenne, $idNumero)) {
+if (verifInput($nom, $prenom, $age, $moyenne, $numero . $idNumero)) {
   $is_submit = editInfo($nom, $prenom, $age, $moyenne, $numero, $idNumero);
   if ($is_submit) {
     goToMain();

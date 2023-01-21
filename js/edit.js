@@ -3,7 +3,7 @@ const btns = document.querySelectorAll(".edit-btn");
 btns.forEach((btn) => {
   btn.addEventListener("click", () => {
     let input = btn.previousElementSibling;
-    let is_disabled = input.hasAttribute("disabled");
+    let is_disabled = input.hasAttribute("readonly");
     let is_important = input.hasAttribute("data-important");
     let is_confirm = true;
 
@@ -11,14 +11,12 @@ btns.forEach((btn) => {
       is_confirm = confirm(" > Sensitive data < , Do you Want to complete ?");
     }
     if (is_disabled && is_confirm) {
-      input.removeAttribute("disabled");
-      btn.style.opacity = "1";
-      btn.style.backgroundColor = "rgba(180, 60, 60, 0.8)"; // background : red;
+      input.removeAttribute("readonly");
+      btn.setAttribute("aria-pressed", "true");
       btn.innerText = "Exit";
     } else {
-      input.setAttribute("disabled", "");
-      btn.style.opacity = "0.8";
-      btn.style.backgroundColor = "";
+      input.setAttribute("readonly", "");
+      btn.setAttribute("aria-pressed", "false");
       btn.innerText = "Edit";
     }
   });
@@ -40,6 +38,9 @@ function verif() {
   }
   // remove disabled attribute from inputs
   removeDisabled();
+
+  alert("nope");
+  return false;
 }
 
 function verifIdNumero() {

@@ -52,23 +52,23 @@
         <hr style="margin-block: 1rem; border: none; border-bottom: 1px solid rgba(250, 250, 250, 0.2);">
         <!-- new info -->
         <div>
-          <input class="text-input" type="text" name="nom" id="nom" placeholder="New name" disabled required />
+          <input class="text-input" type="text" name="nom" id="nom" placeholder="New name" readonly required />
+          <button class="edit-btn" type="button" aria-pressed="false">Edit</button>
+        </div>
+        <div>
+          <input class="text-input" type="text" name="prenom" id="prenom" placeholder="New Last name" readonly required />
           <button class="edit-btn" type="button">Edit</button>
         </div>
         <div>
-          <input class="text-input" type="text" name="prenom" id="prenom" placeholder="New Last name" disabled required />
+          <input class="text-input" type="number" name="age" id="age" placeholder="New age" min="16" max="19" readonly required />
           <button class="edit-btn" type="button">Edit</button>
         </div>
         <div>
-          <input class="text-input" type="number" name="age" id="age" placeholder="New age" min="16" max="19" disabled required />
+          <input class="text-input" type="text" name="moyenne" id="moyenne" placeholder="New Moyenne" readonly required />
           <button class="edit-btn" type="button">Edit</button>
         </div>
         <div>
-          <input class="text-input" type="text" name="moyenne" id="moyenne" placeholder="New Moyenne" disabled required />
-          <button class="edit-btn" type="button">Edit</button>
-        </div>
-        <div>
-          <input class="text-input" type="number" name="numero" id="numero" placeholder="New Number" data-important="true" disabled required />
+          <input class="text-input" type="number" name="numero" id="numero" placeholder="New Number" data-important="true" readonly required />
           <button class="edit-btn" type="button">
             Edit
           </button>
